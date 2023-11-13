@@ -5,31 +5,6 @@ import (
 	"github.com/go-related/graphql/model"
 )
 
-func (l *libraryDb) CreateAuthor(ctx context.Context, data model.Author) (model.Author, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) UpdateAuthor(ctx context.Context, data model.Author) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) DeleteAuthor(ctx context.Context, Id uint) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetAllAuthors(ctx context.Context) ([]*model.Author, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetAuthorById(ctx context.Context, Id uint) (*model.Author, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (l *libraryDb) CreateGenre(ctx context.Context, data model.Genre) (model.Genre, error) {
 	//TODO implement me
 	panic("implement me")
