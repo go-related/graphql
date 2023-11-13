@@ -2,27 +2,34 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
-}
-
-type User {
-  id: ID!
+type Genre {
+  id: Int!
   name: String!
 }
 
-type Query {
-  todos: [Todo!]!
+
+
+input NewGenre {
+  name: String!
 }
 
-input NewTodo {
-  text: String!
-  userId: String!
+input UpdateGenre {
+  id: Int!
+  name: String!
+}
+
+type DeleteResult {
+  is_successful:Boolean!
+  error: String!
+}
+
+type Query {
+  genres: [Genre!]!
+  genre(id:Int!): Genre!
 }
 
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
+  createGenre(input: NewGenre!): Genre!
+  updateGenre(input: UpdateGenre!): Genre!
+  deleteGenre(id: Int!): DeleteResult!
 }

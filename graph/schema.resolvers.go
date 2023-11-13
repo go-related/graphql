@@ -11,14 +11,61 @@ import (
 	"github.com/go-related/graphql/graph/model"
 )
 
-// CreateTodo is the resolver for the createTodo field.
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+// CreateGenre is the resolver for the createGenre field.
+func (r *mutationResolver) CreateGenre(ctx context.Context, input model.NewGenre) (*model.Genre, error) {
+	convertedInput := convertNewGenreToDbModel(input)
+	if convertedInput == nil {
+		return nil, fmt.Errorf("invalid request")
+	}
+	result, err := r.DB.CreateGenre(ctx, *convertedInput)
+	if err != nil {
+		return nil, err
+	}
+	return convertGenreToGraphQLModel(result), nil
 }
 
-// Todos is the resolver for the todos field.
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+// UpdateGenre is the resolver for the updateGenre field.
+func (r *mutationResolver) UpdateGenre(ctx context.Context, input model.UpdateGenre) (*model.Genre, error) {
+	convertedInput := convertGenreToDbModel(input)
+	if convertedInput == nil {
+		return nil, fmt.Errorf("invalid request")
+	}
+	err := r.DB.UpdateGenre(ctx, *convertedInput)
+	if err != nil {
+		return nil, err
+	}
+	return convertGenreToGraphQLModel(*convertedInput), nil
+}
+
+// DeleteGenre is the resolver for the deleteGenre field.
+func (r *mutationResolver) DeleteGenre(ctx context.Context, id int) (*model.DeleteResult, error) {
+	err := r.DB.DeleteGenre(ctx, uint(id))
+	if err != nil {
+		return nil, err
+	}
+	return convertDeleteToGraphQLModel(err), err
+}
+
+// Genres is the resolver for the genres field.
+func (r *queryResolver) Genres(ctx context.Context) ([]*model.Genre, error) {
+	result, err := r.DB.GetAllGenres(ctx)
+	if err != nil {
+		return nil, err
+	}
+	output := []*model.Genre{}
+	for _, gr := range result {
+		output = append(output, convertGenreToGraphQLModel(*gr))
+	}
+	return output, nil
+}
+
+// Genre is the resolver for the genre field.
+func (r *queryResolver) Genre(ctx context.Context, id int) (*model.Genre, error) {
+	result, err := r.DB.GetGenresById(ctx, uint(id))
+	if err != nil {
+		return nil, err
+	}
+	return convertGenreToGraphQLModel(*result), nil
 }
 
 // Mutation returns MutationResolver implementation.

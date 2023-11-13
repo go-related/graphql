@@ -2,19 +2,21 @@
 
 package model
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+type DeleteResult struct {
+	IsSuccessful bool   `json:"is_successful"`
+	Error        string `json:"error"`
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+type Genre struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
-type User struct {
-	ID   string `json:"id"`
+type NewGenre struct {
+	Name string `json:"name"`
+}
+
+type UpdateGenre struct {
+	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
