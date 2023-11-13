@@ -1,6 +1,9 @@
 package main
 
 import (
+	"github.com/go-related/graphql/configuration"
+	"github.com/go-related/graphql/persistance"
+	"github.com/sirupsen/logrus"
 	"log"
 	"net/http"
 	"os"
@@ -17,8 +20,13 @@ func main() {
 	if port == "" {
 		port = defaultPort
 	}
-
-	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
+	db, err := persistance.NewLibraryDb(configuration.ApplicationConfiguration.DbConnectionString)
+	if err != nil {
+		logrus.WithError(err).Fatal("couldn't connect to db")
+	}
+	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
+		DB: db,
+	}}))
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
