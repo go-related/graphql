@@ -2,6 +2,7 @@ package persistance
 
 import (
 	"context"
+	"github.com/go-related/graphql/model"
 )
 
 func (l *libraryDb) CreateAuthor(ctx context.Context, data model.Author) (model.Author, error) {
