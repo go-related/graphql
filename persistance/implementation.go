@@ -5,31 +5,6 @@ import (
 	"github.com/go-related/graphql/model"
 )
 
-func (l *libraryDb) CreateGenre(ctx context.Context, data model.Genre) (model.Genre, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) UpdateGenre(ctx context.Context, data model.Genre) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) DeleteGenre(ctx context.Context, Id uint) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetAllGenres(ctx context.Context) ([]*model.Genre, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetGenresById(ctx context.Context, Id uint) (*model.Genre, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (l *libraryDb) CreateBook(ctx context.Context, data model.Book) (model.Book, error) {
 	//TODO implement me
 	panic("implement me")
