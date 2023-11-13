@@ -51,6 +51,8 @@ this is a test about implementing the graphql over PostgreSQL Sample Database
     }
 
      ```
+  
+
 - ### Step-5 : Update the schema for queries and mutation
     The file can be found at graph/schema.graphqls <br>
     After adding out types/query/mutation we run the following command to update the corresponding models
@@ -58,6 +60,7 @@ this is a test about implementing the graphql over PostgreSQL Sample Database
       go run github.com/99designs/gqlgen generate
      ```
   
+
 - ### Step-6 : Run the application
   ``` #for examle
       #cd project root
