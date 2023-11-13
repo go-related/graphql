@@ -5,31 +5,6 @@ import (
 	"github.com/go-related/graphql/model"
 )
 
-func (l *libraryDb) CreateBook(ctx context.Context, data model.Book) (model.Book, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) UpdateBook(ctx context.Context, data model.Book) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) DeleteBook(ctx context.Context, Id uint) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetAllBooks(ctx context.Context) ([]*model.Book, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l *libraryDb) GetBookById(ctx context.Context, Id uint) (*model.Book, error) {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (l *libraryDb) CreateSubscriber(ctx context.Context, data model.Subscriber) (model.Subscriber, error) {
 	//TODO implement me
 	panic("implement me")
