@@ -1,7 +1,7 @@
 # How to create step by step
-this is a test about implementing the graphql over PostgreSQL Sample Database
+this is a test about implementing the graphql over PostgreSQL Sample Database. if you want to run this application follow [prerequisites.](PREREQUISITES.md)
 
-## Setup
+## Setup a New application From Scratch
 - ###  Step-1 : Initialize the Module 
     like any other new project in go.
     ``` #for examle
@@ -64,5 +64,5 @@ this is a test about implementing the graphql over PostgreSQL Sample Database
 - ### Step-6 : Run the application
   ``` #for examle
       #cd project root
-      go run server.go
+      go run internal/server.go
      ```
