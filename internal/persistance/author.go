@@ -2,7 +2,7 @@ package persistance
 
 import (
 	"context"
-	"github.com/go-related/graphql/model"
+	"github.com/go-related/graphql/internal/model"
 	"github.com/sirupsen/logrus"
 )
 

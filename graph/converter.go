@@ -2,7 +2,7 @@ package graph
 
 import (
 	"github.com/go-related/graphql/graph/model"
-	dbmodel "github.com/go-related/graphql/model"
+	dbmodel "github.com/go-related/graphql/internal/model"
 )
 
 func convertGenreToDbModel(genre model.UpdateGenre) *dbmodel.Genre {

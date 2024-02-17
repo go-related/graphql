@@ -1,6 +1,8 @@
 package graph
 
-import "github.com/go-related/graphql/persistance"
+import (
+	"github.com/go-related/graphql/internal/persistance"
+)
 
 // This file will not be regenerated automatically.
 //

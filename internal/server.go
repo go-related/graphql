@@ -1,10 +1,9 @@
 package main
 
 import (
-	"github.com/go-related/graphql/configuration"
-	"github.com/go-related/graphql/persistance"
+	"github.com/go-related/graphql/internal/configuration"
+	"github.com/go-related/graphql/internal/persistance"
 	"github.com/sirupsen/logrus"
-	"log"
 	"net/http"
 	"os"
 
@@ -31,6 +30,6 @@ func main() {
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 
-	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	logrus.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
+	logrus.Fatal(http.ListenAndServe(":"+port, nil))
 }
